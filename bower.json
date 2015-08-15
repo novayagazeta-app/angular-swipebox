@@ -1,18 +1,21 @@
 {
-    "name": "angular-swipebox",
-    "version": "0.0.1",
-    "homepage": "https://github.com/novayagazeta-app/angular-swipebox",
-    "authors": [
-        "Zhulduz Zhankenova",
-        "Egor Yurtaev"
-    ],
-    "description": "Angular wrapper for swipebox.js",
-    "license": "MIT",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ]
+  "name": "angular-swipebox",
+  "version": "0.0.2",
+  "homepage": "https://github.com/novayagazeta-app/angular-swipebox",
+  "authors": [
+    "Zhulduz Zhankenova",
+    "Egor Yurtaev"
+  ],
+  "description": "Angular wrapper for swipebox.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "swipebox": "~1.4.1"
+  }
 }
