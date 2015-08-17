@@ -4,9 +4,9 @@ angular.module('app', ['ngSwipebox']);
 angular.module('app').controller('AppCtrl', function ($scope) {
   console.log('AppCtrl');
   $scope.photos = [
-    {title: 'photo #1', href: 'http://lorempixel.com/1240/800/cats/1/'},
-    {title: 'photo #2', href: 'http://lorempixel.com/1240/800/cats/5/'},
-    {title: 'photo #3', href: 'http://lorempixel.com/1240/800/cats/10/'},
-    {title: 'photo #4', href: 'http://lorempixel.com/1240/800/cats/7/'}
+    {title: 'photo #1', href: 'assets/img/1.jpeg'},
+    {title: 'photo #2', href: 'assets/img/2.jpeg'},
+    {title: 'photo #3', href: 'assets/img/3.jpeg'},
+    {title: 'photo #4', href: 'assets/img/4.jpeg'}
   ];
 });
