@@ -6,6 +6,9 @@ var gutil = require('gulp-util');
 var coffee = require('gulp-coffee');
 var concat = require('gulp-concat');
 var templateCache = require('gulp-angular-templatecache');
+var rename = require("gulp-rename");
+var uglify = require('gulp-uglify');
+
 
 var paths = {
     coffee: ['./src/coffee/**/*.coffee'],
@@ -32,4 +35,14 @@ gulp.task('default', ['templates'], function() {
     return gulp.src(paths.js)
         .pipe(concat('angular-swipebox.js'))
         .pipe(gulp.dest('./dist/'))
+});
+
+
+gulp.task('compress', ['default'], function() {
+    return gulp.src('./dist/angular-swipebox.js')
+        .pipe(rename({
+            extname: '.min.js'
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/'));
 });
