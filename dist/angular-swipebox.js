@@ -5,8 +5,8 @@ angular.module("ngSwipebox", []).directive('ngSwipebox', [
       replace: true,
       scope: {
         photos: "=",
-        useCSS: "=",
-        useSVG: "=",
+        useCss: "=",
+        useSvg: "=",
         initialIndexOnArray: "=",
         removeBarsOnMobile: "=",
         hideCloseButtonOnMobile: "=",
@@ -29,10 +29,10 @@ angular.module("ngSwipebox", []).directive('ngSwipebox', [
       link: function(scope, element) {
         var options;
         options = {
-          useCSS: scope.useCSS || true,
-          useSVG: scope.useSVG || true,
+          useCSS: scope.useCss,
+          useSVG: scope.useSvg,
           initialIndexOnArray: scope.initialIndexOnArray || 0,
-          removeBarsOnMobile: scope.removeBarsOnMobile || true,
+          removeBarsOnMobile: scope.removeBarsOnMobile,
           hideCloseButtonOnMobile: scope.hideCloseButtonOnMobile || false,
           hideBarsDelay: scope.hideBarsDelay || 3000,
           videoMaxWidth: scope.videoMaxWidth || 1140,

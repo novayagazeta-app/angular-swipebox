@@ -5,8 +5,8 @@ angular.module("ngSwipebox", []).directive 'ngSwipebox', ["$timeout", ($timeout)
 
     scope: {
         photos: "="
-        useCSS: "="                     # false will force the use of jQuery for animations
-        useSVG: "="                     # false to force the use of png for buttons
+        useCss: "="                     # false will force the use of jQuery for animations
+        useSvg: "="                     # false to force the use of png for buttons
         initialIndexOnArray: "="        # which image index to init when a array is passed
         removeBarsOnMobile: "="         # true will remove the top and bottom bars
         hideCloseButtonOnMobile: "="    # true will hide the close button on mobile devices
@@ -31,10 +31,10 @@ angular.module("ngSwipebox", []).directive 'ngSwipebox', ["$timeout", ($timeout)
     link: (scope, element) ->
 
         options =
-            useCSS: scope.useCSS or yes
-            useSVG: scope.useSVG or yes
+            useCSS: scope.useCss
+            useSVG: scope.useSvg
             initialIndexOnArray: scope.initialIndexOnArray or 0
-            removeBarsOnMobile: scope.removeBarsOnMobile or yes
+            removeBarsOnMobile: scope.removeBarsOnMobile
             hideCloseButtonOnMobile: scope.hideCloseButtonOnMobile or no
             hideBarsDelay: scope.hideBarsDelay or 3000
             videoMaxWidth: scope.videoMaxWidth or 1140
