@@ -6,10 +6,13 @@ angular.module("ngSwipebox", []).directive 'ngSwipebox', ["$timeout", ($timeout)
     scope: {
         photos: "="
         useCSS: "="                     # false will force the use of jQuery for animations
+        useSVG: "="                     # false to force the use of png for buttons
         initialIndexOnArray: "="        # which image index to init when a array is passed
+        removeBarsOnMobile: "="         # true will remove the top and bottom bars
         hideCloseButtonOnMobile: "="    # true will hide the close button on mobile devices
         hideBarsDelay: "="              # delay before hiding bars on desktop
         videoMaxWidth: "="              # videos max width
+        vimeoColor: "="
         loopAtEnd: "="                  # true will return to the first image after the last image is reached
         autoplayVideos: "="             # true will autoplay Youtube and Vimeo videos
         queryStringData: "="            # plain object with custom query string arguments to pass/override for video URLs,
@@ -17,6 +20,8 @@ angular.module("ngSwipebox", []).directive 'ngSwipebox', ["$timeout", ($timeout)
         beforeOpen: "&beforeOpen"       # called before opening
         afterOpen: "&afterOpen"         # called after opening
         afterClose: "&afterClose"       # called after closing
+        nextSlide: "&nextSlide"         # callback for next slide
+        prevSlide: "&prevSlide"         # callback for prev slide
     }
 
     templateUrl: (element, attrs) ->
@@ -27,10 +32,13 @@ angular.module("ngSwipebox", []).directive 'ngSwipebox', ["$timeout", ($timeout)
 
         options =
             useCSS: scope.useCSS or yes
+            useSVG: scope.useSVG or yes
             initialIndexOnArray: scope.initialIndexOnArray or 0
+            removeBarsOnMobile: scope.removeBarsOnMobile or yes
             hideCloseButtonOnMobile: scope.hideCloseButtonOnMobile or no
             hideBarsDelay: scope.hideBarsDelay or 3000
             videoMaxWidth: scope.videoMaxWidth or 1140
+            vimeoColor: scope.vimeoColor or 'cccccc'
             loopAtEnd: scope.loopAtEnd or no
             autoplayVideos: scope.autoplayVideos or no
             queryStringData: scope.queryStringData or {}
@@ -38,6 +46,8 @@ angular.module("ngSwipebox", []).directive 'ngSwipebox', ["$timeout", ($timeout)
             beforeOpen: scope.beforeOpen or () ->
             afterOpen: scope.afterOpen or null
             afterClose: scope.afterClose or () ->
+            nextSlide: scope.nextSlide or null
+            prevSlide: scope.prevSlide or null
 
 
         $timeout ( ->
