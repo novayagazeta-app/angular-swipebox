@@ -1,6 +1,6 @@
 {
   "name": "angular-swipebox",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Angular wrapper for swipebox.js",
   "dependencies": {
     "gulp": "^3.9.0",
