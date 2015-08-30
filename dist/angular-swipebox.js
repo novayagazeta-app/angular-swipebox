@@ -55,4 +55,4 @@ angular.module("ngSwipebox", []).directive('ngSwipebox', [
   }
 ]);
 
-angular.module("ngSwipebox").run(["$templateCache", function($templateCache) {$templateCache.put("swipebox.html","<ul>\n    <li ng-repeat=\'photo in photos\'>\n        <a href=\'{{ photo.href }}\' class=\'swipebox\' title=\'{{ photo.title }}\'>\n            <img src=\'{{ photo.href }}\' alt=\'image\'>\n        </a>\n    </li>\n</ul>\n");}]);
+angular.module("ngSwipebox").run(["$templateCache", function($templateCache) {$templateCache.put("swipebox.html","<ul>\n    <li ng-repeat=\'photo in photos\'>\n        <a ng-href=\'{{ photo.href }}\' class=\'swipebox\' title=\'{{ photo.title }}\'>\n            <img ng-src=\'{{ photo.href }}\' alt=\'image\'>\n        </a>\n    </li>\n</ul>\n");}]);
