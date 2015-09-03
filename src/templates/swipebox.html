@@ -1,7 +1,8 @@
 <ul>
     <li ng-repeat='photo in photos'>
         <a ng-href='{{ photo.href }}' class='swipebox' title='{{ photo.title }}'>
-            <img ng-src='{{ photo.href }}' alt='image'>
+            <img ng-src='{{ photo.src }}' ng-if='photo.src' alt='image'>
+            <img ng-src='{{ photo.href }}' ng-if='!photo.src' alt='image'>
         </a>
     </li>
 </ul>
