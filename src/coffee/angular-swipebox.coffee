@@ -50,8 +50,8 @@ angular.module("ngSwipebox", []).directive 'ngSwipebox', ["$timeout", ($timeout)
             prevSlide: scope.prevSlide or null
 
         update_preview_images = () ->
-          _.each scope.photos, (val) ->
-              val.src = if val.src then val.src else val.href
+          angular.forEach scope.photos, (val) ->
+              val["src"] = if val.src then val.src else val.href
 
         do update_preview_images
         $timeout ( ->

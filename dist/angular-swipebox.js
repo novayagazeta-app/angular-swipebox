@@ -48,8 +48,8 @@ angular.module("ngSwipebox", []).directive('ngSwipebox', [
           prevSlide: scope.prevSlide || null
         };
         update_preview_images = function() {
-          return _.each(scope.photos, function(val) {
-            return val.src = val.src ? val.src : val.href;
+          return angular.forEach(scope.photos, function(val) {
+            return val["src"] = val.src ? val.src : val.href;
           });
         };
         update_preview_images();
