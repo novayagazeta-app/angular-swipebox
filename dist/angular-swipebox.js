@@ -27,7 +27,7 @@ angular.module("ngSwipebox", []).directive('ngSwipebox', [
         return attrs.templateUrl || "swipebox.html";
       },
       link: function(scope, element) {
-        var options;
+        var options, update_preview_images;
         options = {
           useCSS: scope.useCss,
           useSVG: scope.useSvg,
@@ -47,6 +47,12 @@ angular.module("ngSwipebox", []).directive('ngSwipebox', [
           nextSlide: scope.nextSlide || null,
           prevSlide: scope.prevSlide || null
         };
+        update_preview_images = function() {
+          return _.each(scope.photos, function(val) {
+            return val.src = val.src ? val.src : val.href;
+          });
+        };
+        update_preview_images();
         return $timeout((function() {
           return angular.element(".swipebox").swipebox(options);
         }));
@@ -55,4 +61,4 @@ angular.module("ngSwipebox", []).directive('ngSwipebox', [
   }
 ]);
 
-angular.module("ngSwipebox").run(["$templateCache", function($templateCache) {$templateCache.put("swipebox.html","<ul>\n    <li ng-repeat=\'photo in photos\'>\n        <a ng-href=\'{{ photo.href }}\' class=\'swipebox\' title=\'{{ photo.title }}\'>\n            <img ng-src=\'{{ photo.href }}\' alt=\'image\'>\n        </a>\n    </li>\n</ul>\n");}]);
+angular.module("ngSwipebox").run(["$templateCache", function($templateCache) {$templateCache.put("swipebox.html","<ul>\n    <li ng-repeat=\'photo in photos\'>\n        <a ng-href=\'{{ photo.href }}\' class=\'swipebox\' title=\'{{ photo.title }}\'>\n            <img ng-src=\'{{ photo.src }}\' alt=\'image\'>\n        </a>\n    </li>\n</ul>\n");}]);
